@@ -11,27 +11,27 @@ app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'mp4', 'avi'}
 model = YOLO('static/Yolo/best.pt')
 
 descriptions = {
-    'L-belok-kanan': 'Dilarang untuk belok ke kanan.',
-    'L-belok-kiri': 'Dilarang untuk belok ke kiri.',
-    'L-berhenti': 'Harus berhenti.',
-    'L-berjalan-terus': 'Dilarang untuk berjalan terus atau harus stop.',
-    'L-masuk': 'Dilarang masuk.',
-    'L-parkir': 'Dilarang parkir.',
-    'L-putar-balik': 'Dilarang putar balik.',
-    'lampu-hijau': 'Lampu lalu lintas hijau, boleh melanjutkan perjalanan.',
-    'lampu-kuning': 'Lampu lalu lintas kuning, siap-siap berhenti.',
-    'lampu-merah': 'Lampu lalu lintas merah, harus berhenti.',
-    'p-area-parkir': 'Area parkir.',
-    'p-isyarat': 'Perhatikan isyarat.',
-    'p-masuk-jalur': 'Boleh masuk ke jalur ini.',
-    'p-masuk-kiri': 'Boleh masuk ke jalur kiri.',
-    'p-pemberhentian-bus': 'Pemberhentian bus.',
-    'p-penegasan': 'Penegasan.',
-    'p-penyeberangan': 'Penyeberangan.',
-    'p-perlintasan-kereta': 'Perlintasan kereta api.',
-    'p-putar-balik': 'Putar balik.',
-    'p-simpang-tiga': 'Simpang tiga.',
-    'p-zebra-cross': 'Zebra cross, silakan berhenti untuk pejalan kaki.'
+    'L-belok-kanan': 'Dilarang belok kanan. Arahkan kendaraan Anda ke kiri atau lurus.',
+    'L-belok-kiri': 'Dilarang belok kiri. Silakan melanjutkan perjalanan lurus atau belok kanan.',
+    'L-berhenti': 'Harus berhenti. Pastikan kondisi lalu lintas aman sebelum melanjutkan perjalanan.',
+    'L-berjalan-terus': 'Dilarang berjalan terus. Anda harus berhenti dan memperhatikan rambu selanjutnya.',
+    'L-masuk': 'Dilarang masuk. Cari jalan alternatif untuk melanjutkan perjalanan Anda.',
+    'L-parkir': 'Dilarang parkir di area ini. Temukan area parkir yang diperbolehkan.',
+    'L-putar-balik': 'Dilarang putar balik. Cari titik putar balik yang diperbolehkan.',
+    'lampu-hijau': 'Lampu lalu lintas hijau. Anda boleh melanjutkan perjalanan dengan tetap berhati-hati.',
+    'lampu-kuning': 'Lampu lalu lintas kuning. Bersiap-siaplah untuk berhenti.',
+    'lampu-merah': 'Lampu lalu lintas merah. Anda harus berhenti dan menunggu lampu hijau.',
+    'p-area-parkir': 'Area parkir. Anda boleh memarkir kendaraan di sini.',
+    'p-isyarat': 'Perhatikan isyarat lalu lintas dan petunjuk dari petugas.',
+    'p-masuk-jalur': 'Anda boleh masuk ke jalur ini. Pastikan mengikuti aturan lalu lintas.',
+    'p-masuk-kiri': 'Boleh masuk ke jalur kiri. Pastikan jalur aman dan sesuai aturan.',
+    'p-pemberhentian-bus': 'Pemberhentian bus. Gunakan tempat ini untuk menunggu bus.',
+    'p-penegasan': 'Penegasan. Perhatikan informasi tambahan yang diberikan.',
+    'p-penyeberangan': 'Penyeberangan. Berhenti dan beri jalan kepada pejalan kaki yang melintas.',
+    'p-perlintasan-kereta': 'Perlintasan kereta api. Pastikan aman sebelum melintas.',
+    'p-putar-balik': 'Putar balik di sini. Lakukan dengan hati-hati.',
+    'p-simpang-tiga': 'Simpang tiga. Perhatikan arah dan rambu lalu lintas.',
+    'p-zebra-cross': 'Zebra cross. Berhenti dan beri kesempatan pejalan kaki untuk menyeberang.'
 }
 
 def allowed_file(filename):
