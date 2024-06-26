@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Judul Halaman -->
+    <title>Orbit Future Academy</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/client_side.css') }}" type="text/css">
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/jquery_3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap_3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/client_side.js') }}"></script>
+</head>
+
+<body id="halamanku" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+
+            <!-- Logo -->
+            <div class="navbar-header">
+                <img src="{{ url_for('static', filename='images/orbit_logo.jpg') }}" alt="Orbit Logo" width="50"
+                    height="50" align="left">
+                <a class="navbar-brand" href="#halamanku">&#160; Orbit Future Academy</a>
+            </div>
+
+            <!-- Daftar Halaman -->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#informasi">INFORMASI</a></li>
+                    <li><a href="#aplikasi">APLIKASI</a></li>
+                    <li><a href="#anggotaKelompok">ANGGOTA KELOMPOK</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bagian Halaman (Informasi) -->
+    <div id="informasi" class="container-fluid">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>VISI</h2>
+                <h4>Versatile Intelligence System for Intuitive Traffic Sign Identification</h4><br>
+                <p style="text-align: justify;text-justify: inter-word;">
+                    VISI adalah aplikasi inovatif yang membantu pengemudi memahami arti dan fungsi rambu lalu lintas
+                    secara mudah dan
+                    interaktif. VISI menyediakan informasi mengenai
+                    rambu lalulintas,
+                    meningkatkan keselamatan dan berfungsi sebagai alat edukasi
+                    efektif untuk
+                    mempelajari dan mengingat rambu lalu lintas.
+                    <br>
+
+                    <!-- Tombol Mulai -->
+                <nav id="navgo" class="navbar" style="background-color:#ffffff;z-index: 0;">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="btn btn-default btn-lg" href="#aplikasi"
+                                style="background-color:#28ace5">Mulai</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="col-sm-6">
+                <br>
+                <br>
+                <!-- Gambar Deskripsi Aplikasi -->
+                <div align="center">
+                    <img id="app-display-img" src="{{ url_for('static', filename='images/viritus.png') }}" height="300">
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+<!-- Bagian Halaman (Aplikasi) -->
+<div id="aplikasi" class="container-fluid text-center">
+    <h3>Unggah File untuk Deteksi atau Gunakan Kamera</h3>
+    <form id="upload-form" action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*,video/*">
+        <input type="submit" id="upload-button" value="Unggah">
+    </form>
+    <h4>Atau Gunakan Kamera</h4>
+    <button id="start-camera">Mulai Kamera</button>
+    <button id="off-camera">Matikan Kamera</button>
+    <div class="container-fluid text-center">
+        <div>
+            <img id="camera-feed" src="" alt="Video Stream" style="display:none;" class="video-container">
+        </div>
+        <div id="description-container" class="description-container"></div>
+    </div>
+    {% if uploaded_file and result_file %}
+    <div>
+        {% if uploaded_file.split('.')[-1].lower() in ['png', 'jpg', 'jpeg', 'gif'] %}
+        <div>
+            <h2>Gambar Asli</h2>
+            <img src="{{ url_for('static', filename='uploads/' + uploaded_file) }}" alt="Uploaded Image"
+                class="image-container">
+        </div>
+        <div>
+            <h2>Hasil Deteksi</h2>
+            <img src="{{ url_for('static', filename='uploads/' + result_file) }}" alt="Detected Image"
+                class="image-container">
+        </div>
+        {% elif uploaded_file.split('.')[-1].lower() in ['mp4', 'avi'] %}
+        <div>
+            <h2>Video Asli</h2>
+            <video controls>
+                <source src="{{ url_for('static', filename='uploads/' + uploaded_file) }}" type="video/mp4"
+                    class="video-container">
+                Browser Anda tidak mendukung video.
+            </video>
+        </div>
+        <div>
+            <h2>Hasil Deteksi</h2>
+            <video controls>
+                <source src="{{ url_for('static', filename='uploads/' + result_file) }}" type="video/mp4"
+                    class="video-container">
+                Browser Anda tidak mendukung video.
+            </video>
+        </div>
+        {% endif %}
+        <div class="description-container">
+            <h2>Deskripsi Hasil Deteksi</h2>
+            {% for class_name, description in descriptions %}
+            <div class="description">
+                <strong>{{ class_name }}:</strong> {{ description }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+
+
+
+    <!-- Bagian Halaman (Anggota Kelompok) -->
+    <div id="anggotaKelompok" class="container-fluid text-center">
+        <br>
+        <h2>ANGGOTA KELOMPOK</h2>
+        <h4>Tim Deployment dan Tim CV</h4>
+        <br>
+        <div class="row slideanim">
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-user logo-small"></span>
+                <h4>DITA YANUARI KASPAROVA</h4>
+                <p>Universitas Muria Kudus</p>
+            </div>
+            <div class="col-sm-4">
+                <span class="dary glyphicon glyphicon-user logo-small"></span>
+                <h4>DARY DIMAS WIJAYA</h4>
+                <p>Universitas Muhammadiyah Purwokerto</p>
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-user logo-small"></span>
+                <h4>AINUN MARDIANA</h4>
+                <p>Universitas Negeri Semarang</p>
+            </div>
+        </div>
+        <br>
+        <div class="row slideanim">
+            <div class="col-sm-6">
+                <span class="glyphicon glyphicon-user logo-small"></span>
+                <h4>ARINA AZ ZAHRA</h4>
+                <p>Universitas Islam Bandung</p>
+            </div>
+            <div class="col-sm-6">
+                <span class="glyphicon glyphicon-user logo-small"></span>
+                <h4>RIVAL PADILAH</h4>
+                <p>Universitas Islam Bandung</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container-fluid text-center">
+        <a href="#halamanku" title="To Top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p>Orbit Future Academy <br> <a href="https://orbitfutureacademy.id/">orbitfutureacademy.id</a></p>
+    </footer>
+
+    <!-- JavaScript untuk Animasi Scroll dan Prediksi Model -->
+    <script src={{ url_for('static', filename='/js/client_side.js' ) }}></script>
+
+</body>
+
+</html>

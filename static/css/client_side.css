@@ -1,0 +1,236 @@
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/static/fonts/lato_latin_ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/static/fonts/lato_latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/fonts/glyphicons-halflings-regular.eot'),
+       url('/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+       url('/fonts/glyphicons-halflings-regular.woff') format('woff'),
+       url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+}
+
+body {
+	font: 400 15px Lato, sans-serif;
+	line-height: 1.8;
+	color: #818181;
+}
+
+h2 {
+	font-size: 24px;
+	text-transform: uppercase;
+	color: #28ace5;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+
+h3 {
+	font-size: 22px;
+	line-height: 1.375em;
+	color: #28ace5;
+	font-weight: 500;
+	margin-bottom: 30px;
+}  
+
+h4 {
+	font-size: 19px;
+	line-height: 1.375em;
+	color: #28ace5;
+	font-weight: 400;
+	margin-bottom: 30px;
+}  
+
+.container-fluid {
+	padding: 60px 50px;
+}
+
+.bg-blue {
+	background-color: #bde2f9;
+}
+
+.logo-small {
+	color: #28ace5;
+	font-size: 50px;
+}
+
+.logo {
+	color: #28ace5;
+	font-size: 200px;
+}
+
+.navbar {
+	margin-bottom: 0;
+	background-color: #28ace5;
+	z-index: 9999;
+	border: 0;
+	font-size: 12px !important;
+	line-height: 1.42857143 !important;
+	letter-spacing: 4px;
+	border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand {
+	color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+	color: #28ace5 !important;
+	background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: transparent;
+	color: #fff !important;
+}
+
+footer .glyphicon {
+	font-size: 20px;
+	margin-bottom: 20px;
+	color: #28ace5;
+}
+
+.slideanim {
+	visibility:hidden;
+}
+
+.slide {
+	animation-name: slide;
+	-webkit-animation-name: slide;
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+	visibility: visible;
+}
+
+@keyframes slide {
+	0% {
+	  opacity: 0;
+	  transform: translateY(70%);
+	} 
+	100% {
+	  opacity: 1;
+	  transform: translateY(0%);
+	}
+}
+
+@-webkit-keyframes slide {
+	0% {
+	  opacity: 0;
+	  -webkit-transform: translateY(70%);
+	} 
+	100% {
+	  opacity: 1;
+	  -webkit-transform: translateY(0%);
+	}
+}
+/* Gaya tambahan untuk bagian halaman aplikasi */
+h1 {
+	font-size: 32px;
+	text-align: center;
+	margin-bottom: 20px;
+	color: #333;
+}
+
+form {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+form input[type=file] {
+	display: block;
+	margin: 0 auto;
+	padding: 10px;
+	border: 2px solid #28ace5;
+	background-color: #fff;
+	color: #333;
+	cursor: pointer;
+	transition: border-color 0.3s ease;
+}
+
+form input[type=file]:hover {
+	border-color: #1e90ff;
+}
+
+form input[type=submit] {
+	display: block;
+	margin: 10px auto;
+	padding: 10px 20px;
+	background-color: #28ace5;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+form input[type=submit]:hover {
+	background-color: #1e90ff;
+}
+
+#start-camera {
+	display: block;
+	margin: 20px auto;
+	padding: 10px 20px;
+	background-color: #28ace5;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+#start-camera:hover {
+	background-color: #1e90ff;
+}
+
+.image-container,
+.video-container {
+	margin-bottom: 20px;
+}
+
+.image-container h2,
+.video-container h2,
+.description-container h2 {
+	font-size: 24px;
+	color: #28ace5;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.description-container {
+	margin-top: 20px;
+}
+
+.description {
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.description strong {
+	font-weight: bold;
+	color: #28ace5;
+}
+
+
+.image-container img,
+.video-container video{
+	max-height: 640px;
+	width: auto;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.dary {
+	color: rgba(40, 194, 250, 0.779);
+}
